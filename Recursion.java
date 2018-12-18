@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import java.lang.*;
+
 
 public class Recursion {
 
@@ -7,36 +7,35 @@ public class Recursion {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the String ");
-		String a=sc.nextLine();
-		String s=recur(a);
-		System.out.print(s);
-		/*while (len!=0){
-	    	StringBuffer sb=new StringBuffer(string[len-1]);
-	    	StringBuffer s= sb.reverse();
-	    	str+=s+" ";
-	    	len--;
-	    	}
-		System.out.print(str);
-		
-		}*/
-
+		String s=sc.nextLine();
+		sc.close();
+		String ptr=recur(s);
+		System.out.println(ptr);
 	}
-
-	private static String recur(String arr) {
-		// TODO Auto-generated method stu
-		String string[]=arr.split(" ");
-		int len=string.length;
-		String ptr="";
-		while (len!=0){
-	    	StringBuffer sb=new StringBuffer(string[len-1]);
-	    	StringBuffer s= sb.reverse();
-	    	int l=s.length();
-	    	str+=s+" ";
-	    	recur(arr.substring(0,arr.length()-l));
-	        }
-		return str;
+	public static String recur(String string){
+		try{
+		if(string.isEmpty()){
+			 return str;
+			 }
+		else{
+			String arr[]=string.split(" ");
+			/*for(int i=0;i<arr.length;i++){
+				System.out.print(arr[i]+" ");
+			}*/
 		
+			StringBuffer sb=new StringBuffer(arr[arr.length-1]);
+			sb.reverse();
+			str=str+sb+" ";
+			//System.out.println(string.substring(0,string.length()-arr[arr.length-1].length()));
+			//System.out.println(string.substring(0,string.length()-1));
+			//System.out.println(string.substring(string.length()-arr[arr.length-1].length()));
+			recur(string.substring(0,(string.length()-1) - arr[arr.length-1].length()));
+		
+			return str;
+		}
+		}catch(Exception e){
+			return "e.printStackTrace()";
+		}
 	}
 
 }
